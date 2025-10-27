@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fragpt2"
+version = "0.1"
+authors = [
+    { name = "Emiel Koridon", email = "koridon@lorentz.leidenuniv.nl" },
+    { name = "Souloke Sen", email = "sen.souloke@gmail.com" },
+]
+description = "Fragment embedding method"
+readme = "README.md"
+requires-python = ">=3.8" # Pytorch requires at least python 3.8
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = ["numpy", "scipy", "pyscf"]
+
+[project.urls]
+"Homepage" = "https://github.com/Emieeel/fragpt2"
+"Bug Tracker" = "https://github.com/Emieeel/fragpt2/issues"
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+    "ignore::UserWarning",
+]
