@@ -30,10 +30,6 @@ nao, mo_energies, mo_coeff = unpack_pyscf("ribo.pyscf")
 act_idx_l1_base1 = [4, 5, 11, 12]
 act_idx_l2_base1 = [8, 9, 27, 28]
 
-# # Biphenyl 15 deg:
-# # for CAS(8,8):
-# act_idx_l1_base1 = [26, 27, 42, 43]
-# act_idx_l2_base1 = [40, 41, 56, 57]
 
 act_idx_l1 = np.array(act_idx_l1_base1) - 1
 act_idx_l2 = np.array(act_idx_l2_base1) - 1
@@ -47,12 +43,6 @@ nelec_l2 = nelecas // 2
 ncas_l1 = ncas // 2
 ncas_l2 = ncas // 2
 
-# ncas = len(act_idx)
-# nelecas = 6
-# nelec_l1 = 2
-# nelec_l2 = 4
-# ncas_l1 = 2
-# ncas_l2 = 4
 
 print(f'l1: CAS({nelec_l1},{ncas_l1})')
 print(f'l2: CAS({nelec_l2},{ncas_l2})')
@@ -82,29 +72,9 @@ print(f'scf energy:              {e_tot:.6f}')
 print(f'exact energy:            {casci.e_full:.6f}')
 
 e_pt2_disp = casci.run_disp()
-# e_pt3, e_pt2 = casci.run_fragpt3()
 
-# print(f'embedding energy w pt3:  {e_tot + e_pt2 + e_pt3:.6f}')
 print(f'Pt2 disp correction:     {e_pt2_disp:.8f}')
 print(f'embedding energy wo pt3: {e_tot + e_pt2_disp:.6f}')
-# print(f'Pt3 correction:          {e_pt3:.8f}')
-
-# e_gev = casci.solve_gev()
-
-# print(f'GEV problem energy: {e_gev:.6f}')
-
-# psi_c = casci.psi1_c[1:].reshape((casci.ncas_l1**2, casci.ncas_l2**2))
-
-# plt.imshow(psi_c)
-# plt.colorbar()
-# plt.show()
-
-# plt.imshow(psi_c_norm)
-# plt.colorbar()
-# plt.show()
-
-# casci.run_ct1_casci(nroots)
-# casci.run_ct2_casci(nroots)
 
 e_ct1_ci = casci.e_ct1 - mf.e_tot
 e_ct2_ci = casci.e_ct2 - mf.e_tot
